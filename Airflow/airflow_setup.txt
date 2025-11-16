@@ -1,0 +1,49 @@
+create a new repository on the command line
+echo "# Data-Engineering" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/alphaA123/Data-Engineering.git
+git push -u origin main
+
+
+…or push an existing repository from the command line
+git remote add origin https://github.com/alphaA123/Data-Engineering.git
+git branch -M main
+git push -u origin main
+
+Step 1:
+
+export AIRFLOW_HOME="/workspaces/hands-on-introduction-data-engineering-4395021/airflow" && pip install "apache-airflow==2.6.3" --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-2.6.3/constraints-3.10.txt"
+
+airflow db init
+
+airflow users create \
+    --username admin \
+    --firstname Admin \
+    --lastname User \
+    --role Admin \
+    --email admin@example.com \
+    --password admin
+	
+go to webserver_config.py and change WTF_CSRF_ENABLED = True -- to False
+
+Airflow installed !!
+
+STEP 2:
+Running the webserver:
+airflow webserver -D
+
+airflow dags list
+
+airflow scheduler -D  -- Starts Scheduler service
+
+ps -ef | grep -i webserver | grep master
+
+ps -ef | grep -i scheduler | grep -v grep | grep -v DagFileProcessorManager
+
+cat airflow/airflow.cfg | grep "dags_folder"  -- get the folder were DAGS needs to be placed
+
+workspaces/hands-on-introduction-data-engineering-4395021/airflow/dags
+
